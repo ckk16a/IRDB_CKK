@@ -13,6 +13,7 @@
 		61CA9572253F19240050103B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9570253F19240050103B /* Main.storyboard */; };
 		61CA9574253F19250050103B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9573253F19250050103B /* Assets.xcassets */; };
 		61CA9577253F19250050103B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CA9575253F19250050103B /* LaunchScreen.storyboard */; };
+		61CA9581253F1DCE0050103B /* IRDBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA9580253F1DCE0050103B /* IRDBTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		61CA9573253F19250050103B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61CA9576253F19250050103B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61CA9578253F19250050103B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61CA9580253F1DCE0050103B /* IRDBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRDBTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				61CA9573253F19250050103B /* Assets.xcassets */,
 				61CA9575253F19250050103B /* LaunchScreen.storyboard */,
 				61CA9578253F19250050103B /* Info.plist */,
+				61CA9580253F1DCE0050103B /* IRDBTableViewController.swift */,
 			);
 			path = IRDB_CKK;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61CA9581253F1DCE0050103B /* IRDBTableViewController.swift in Sources */,
 				61CA956F253F19240050103B /* ViewController.swift in Sources */,
 				61CA956B253F19240050103B /* AppDelegate.swift in Sources */,
 				61CA956D253F19240050103B /* SceneDelegate.swift in Sources */,
