@@ -9,7 +9,7 @@ import UIKit
 
 class DataController: NSObject {
     
-    let JSONURL = "https://api.jsonbin.io/b/5eb061a247a2266b1472bcf9/1"
+    let JSONURL = "https://api.jsonbin.io/b/5f9f66dece4aa22895544f97/1"
     
     var dataModel: MediaDataModel?
     
@@ -29,7 +29,7 @@ class DataController: NSObject {
                 let thisMediaData = try decoder.decode(MediaDataModel.self, from: thisData)
                 
                 self.dataModel = thisMediaData
-                print(thisMediaData.franchise[0].entries[0].name)
+                print(thisMediaData.batmanSeries[0].media[0].mediaName)
                 
                 //call back the completionHandler and let them know we are done
                 

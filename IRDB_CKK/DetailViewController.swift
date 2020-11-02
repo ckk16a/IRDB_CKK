@@ -9,16 +9,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var summaryTextView: UITextView!
+    @IBOutlet weak var whereToWatchLabel: UILabel!
+    @IBOutlet weak var storyLineView: UITextView!
     @IBOutlet var mediaImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var yearLabel: UILabel!
-    @IBOutlet var formatLabel: UILabel!
-    @IBOutlet var episodesLabel: UILabel!
-    @IBOutlet var studioLabel: UILabel!
+    @IBOutlet var releaseLabel: UILabel!
+    @IBOutlet var directorLabel: UILabel!
+    @IBOutlet var genreLabel: UILabel!
+    @IBOutlet var runTimeLabel: UILabel!
     
-    var detailItem: Entry? {
+    var detailItem: Media? {
         didSet {
             configureView()
         }
@@ -28,26 +28,27 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        title = detailItem?.name
+        title = detailItem?.mediaName
         
         let nav = self.navigationController?.navigationBar
           
         nav?.barStyle = UIBarStyle.black
-        nav?.tintColor = UIColor.init(red: 245/255, green: 196/255, blue: 72/255, alpha: 1)
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        nav?.tintColor = UIColor.init(red: 255/255, green: 255/255, blue: 0/255, alpha: 1)
         
         configureView()
     }
     
     func configureView() {
         
-        if let entry = detailItem{
+        if let media = detailItem{
             //header view
             
             //NEED that image from URL
             
             
             if let thisMediaImage = mediaImage {
-                guard let imageURL = URL(string: entry.imageURL) else { return }
+                guard let imageURL = URL(string: media.imageLink) else { return }
 
                         // just not to cause a deadlock in UI!
                     DispatchQueue.global().async {
@@ -61,46 +62,28 @@ class DetailViewController: UIViewController {
             }
             
             if let thisTitleLabel = titleLabel {
-                thisTitleLabel.text = entry.name
+                thisTitleLabel.text = media.mediaName
             }
-            if let thisYearLabel = yearLabel {
-                // NEED SOME FORMATTING HERE!!
-                // year needs to JUST show the year if there is only the yearStart
-                // IF there is also a yearEnd "yearStart - yearEnd"
-                if let yearEnd = entry.yearEnd {
-                    thisYearLabel.text = "\(entry.yearStart) - \(yearEnd)"
-                }
-                else {
-                    thisYearLabel.text = entry.yearStart
-                }
+            if let thisReleaseLabel = releaseLabel {
+                thisReleaseLabel.text = media.releaseDate
             }
-            if let thisFormatLabel = formatLabel {
-                thisFormatLabel.text = entry.format
+            if let thisDirectorLabel = directorLabel {
+                thisDirectorLabel.text = media.directorOrCreator
             }
-            if let thisEpisodeLabel = episodesLabel {
-                if let episodeCount = entry.episodes {
-                    
-                    //IF there is only ONE episode, take that S off the end of Episodes
-                    if(episodeCount == 1){
-                        thisEpisodeLabel.text = "1 Episode"
-                    } else {
-                        thisEpisodeLabel.text = "\(episodeCount) Episodes"
-                    }
-                } else {
-                    thisEpisodeLabel.text = ""
-                }
+            if let thisGenreLabel = genreLabel {
+                thisGenreLabel.text = media.genre
             }
-            if let thisStudioLabel = studioLabel {
-                thisStudioLabel.text = entry.studio
+            if let thisRunTimeLabel = runTimeLabel {
+                thisRunTimeLabel.text = media.runTime
             }
             
             //bottom view
-            if let thisDescriptionLabel = descriptionLabel {
-                thisDescriptionLabel.text = entry.description
+            if let thisWhereToWatchLabel = whereToWatchLabel {
+                thisWhereToWatchLabel.text = media.whereToWatch
             }
             
-            if let thisSummaryTextView = summaryTextView {
-                thisSummaryTextView.text = entry.summary
+            if let thisStoryLine = storyLineView {
+                thisStoryLine.text = media.storyLine
             }
         }
     }
@@ -112,7 +95,7 @@ class DetailViewController: UIViewController {
         if segue.identifier == "showCastList"{
 //
             let contoller = segue.destination as! CastTableViewController
-            contoller.castListArray = detailItem?.starring
+            contoller.castListArray = detailItem?.cast
         }
     }
 

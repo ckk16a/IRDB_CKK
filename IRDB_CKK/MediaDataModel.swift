@@ -8,28 +8,27 @@
 import UIKit
 
 class MediaDataModel: Codable {
-    var franchise: [Franchise]
+    var batmanSeries: [BatmanSeries]
 }
 
-class Franchise: Codable{
-    let franchiseName: String
-    let entries: [Entry]
+class BatmanSeries: Codable{
+    let seriesType: String
+    let media: [Media]
 }
 
-class Entry: Codable{
-    let name: String
-    let format: String
-    let yearStart: String
-    let yearEnd: String?
-    let episodes: Int?
-    let studio: String
-    let imageURL: String
-    let description: String
-    let summary: String
-    let starring: [Cast]
+class Media: Codable{
+    let mediaName: String
+    let directorOrCreator: String
+    let releaseDate: String
+    let genre: String
+    let runTime: String
+    let imageLink: String
+    let whereToWatch: String
+    let storyLine: String
+    let cast: [Featured]
 }
 
-class Cast: Codable{
+class Featured: Codable{
     let actorName: String
     let role: String
 }
